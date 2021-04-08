@@ -48,6 +48,7 @@ function setup() {
 
 function draw() {
   currentTime=hour();
+  console.log(foodObj);
   if(currentTime==(lastFed+1)){
       update("Playing");
       foodObj.garden();
@@ -63,9 +64,9 @@ function draw() {
    }
    
    if(gameState!="Hungry"){
-     feed.hide();
-     addFood.hide();
-     dog.remove();
+    feed.show();
+    addFood.show();
+    dog.addImage(sadDog);
    }else{
     feed.show();
     addFood.show();
@@ -79,6 +80,7 @@ function draw() {
 function readStock(data){
   foodS=data.val();
   foodObj.updateFoodStock(foodS);
+
 }
 
 
